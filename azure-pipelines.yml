@@ -10,6 +10,8 @@ steps:
     solutionPath: '**/*.sln'
     collectBuildInfo: true
     projectKey: nuget
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 
 - task: JFrogPublishBuildInfo@1
   inputs:
@@ -19,10 +21,11 @@ steps:
   
 - task: JFrogNuGet@1
   inputs:
-    command: 'restore'
+    command: 'push'
     artifactoryConnection: 'sarangeplus'
-    targetResolveRepo: 'test-nuget'
-    solutionPath: '**/*.sln'
+    targetDeployRepo: 'test-nuget'
+    targetDeployPath: 'azure-test'
+    pathToNupkg: '*.nupkg'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
