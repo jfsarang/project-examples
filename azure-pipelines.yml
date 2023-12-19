@@ -7,8 +7,4 @@ steps:
     artifactoryConnection: 'sarangeplus'
     targetResolveRepo: 'test-nuget'
     solutionPath: '**/*.sln'
-    collectBuildInfo: true
-    projectKey: 'nuget'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    noNuGetCache: true
+    verbosityRestore: 'Normal'
