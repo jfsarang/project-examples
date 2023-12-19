@@ -8,9 +8,10 @@ steps:
     targetResolveRepo: 'test-nuget'
     solutionPath: '**/*.sln'
     collectBuildInfo: true
-    projectKey: nuget
+    projectKey: 'nuget'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+    noNuGetCache: true
 
 - task: JFrogPublishBuildInfo@1
   inputs:
