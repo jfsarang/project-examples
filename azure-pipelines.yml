@@ -1,4 +1,3 @@
-# Starter pipeline
 trigger:
 - main
 steps:
@@ -9,14 +8,15 @@ steps:
     targetResolveRepo: 'test-nuget'
     solutionPath: '**/*.sln'
     collectBuildInfo: true
-    projectKey: azure
+    projectKey: nuget
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 
 - task: JFrogPublishBuildInfo@1
   inputs:
     artifactoryConnection: 'sarangeplus'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    projectKey: azure
   
 - task: JFrogNuGet@1
   inputs:
@@ -28,4 +28,4 @@ steps:
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    projectKey: azure
+    projectKey: 'nuget'
