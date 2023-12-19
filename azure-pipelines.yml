@@ -5,6 +5,5 @@ steps:
   inputs:
     command: 'restore'
     artifactoryConnection: 'sarangeplus'
-    targetResolveRepo: 'test-nuget'
+    targetResolveRepo: 'nuget-virtual'
     solutionPath: '**/*.sln'
-    verbosityRestore: 'Normal'
