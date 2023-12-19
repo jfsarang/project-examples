@@ -11,3 +11,19 @@ steps:
     collectBuildInfo: true
     projectKey: nuget
 
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'sarangeplus'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+  
+- task: JFrogNuGet@1
+  inputs:
+    command: 'restore'
+    artifactoryConnection: 'sarangeplus'
+    targetResolveRepo: 'test-nuget'
+    solutionPath: '**/*.sln'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    projectKey: 'nuget'
