@@ -12,21 +12,3 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     noNuGetCache: true
-
-- task: JFrogPublishBuildInfo@1
-  inputs:
-    artifactoryConnection: 'sarangeplus'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-  
-- task: JFrogNuGet@1
-  inputs:
-    command: 'push'
-    artifactoryConnection: 'sarangeplus'
-    targetDeployRepo: 'test-nuget'
-    targetDeployPath: 'azure-test'
-    pathToNupkg: '*.nupkg'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    projectKey: 'nuget'
