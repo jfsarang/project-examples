@@ -10,8 +10,6 @@ steps:
     solutionPath: '**/*.sln'
     collectBuildInfo: true
     projectKey: azure
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -25,6 +23,7 @@ steps:
     artifactoryConnection: 'sarangeplus'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+    projectKey: azure
   
 - task: JFrogNuGet@1
   inputs:
