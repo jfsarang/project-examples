@@ -1,4 +1,12 @@
 # Starter pipeline
+- task: JFrogNuGet@1
+  inputs:
+    command: 'restore'
+    artifactoryConnection: 'sarangeplus'
+    targetResolveRepo: 'test-nuget'
+    solutionPath: '**/*.sln'
+    nugetProtocolVersion: 'v2'
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
