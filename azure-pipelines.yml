@@ -7,6 +7,4 @@ steps:
     artifactoryConnection: 'sarangeplus'
     targetResolveRepo: 'nuget-virtual'
     solutionPath: '**/*.sln'
-    noNuGetCache: true
-    nugetProtocolVersion: v3
     
