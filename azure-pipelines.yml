@@ -9,7 +9,7 @@ steps:
 
     command: 'install'
 
-    artifactoryConnection: 'Artifactory'
+    artifactoryConnection: 'sarangeplus'
 
     sourceRepo: 'npm-virtual'
 
