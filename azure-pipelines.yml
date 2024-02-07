@@ -1,9 +1,16 @@
 trigger:
 - main
 steps:
-- task: JFrogNuGet@1
+- task: JFrogNpm@1
+
+  displayName: 'npm i (Artifactory connection)'
+
   inputs:
-    command: 'restore'
-    artifactoryConnection: 'sarangeplus'
-    targetResolveRepo: 'nuget-virtual'
-    solutionPath: '**/*.sln'    
+
+    command: 'install'
+
+    artifactoryConnection: 'Artifactory'
+
+    sourceRepo: 'npm-virtual'
+
+    workingFolder: '.'
