@@ -1,16 +1,16 @@
 trigger:
 - main
 steps:
-- task: JFrogNpm@1
-
-  displayName: 'npm i (Artifactory connection)'
-
+- task: JFrogToolsInstaller@1
   inputs:
-
-    command: 'install'
-
     artifactoryConnection: 'sarangeplus'
+    cliInstallationRepo: 'jfrog-cli-remote'
+    installExtractors: true
+    extractorsInstallationRepo: 'extractors'
 
-    sourceRepo: 'npm-virtual'
-
-    workingFolder: '.'
+- task: JFrogNuGet@1
+  inputs:
+    command: 'restore'
+    artifactoryConnection: 'sarangeplus'
+    targetResolveRepo: 'nuget-virtual'
+    solutionPath: '**/*.sln'
