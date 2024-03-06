@@ -1,5 +1,6 @@
 trigger:
 - main
+
 steps:
 - task: JFrogToolsInstaller@1
   inputs:
@@ -7,10 +8,10 @@ steps:
     cliInstallationRepo: 'jfrog-cli-remote'
     installExtractors: true
     extractorsInstallationRepo: 'extractors'
-
 - task: JFrogNuGet@1
   inputs:
     command: 'restore'
     artifactoryConnection: 'sarangeplus'
     targetResolveRepo: 'nuget-virtual'
     solutionPath: '**/*.sln'
+    noNuGetCache: true
