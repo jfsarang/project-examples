@@ -11,7 +11,7 @@ steps:
 - task: JFrogNuGet@1
   inputs:
     command: 'restore'
-    artifactoryConnection: 'sarangeplus'
-    targetResolveRepo: 'nuget-virtual'
+    artifactoryConnection: 'icseng'
+    targetResolveRepo: 'nuget'
     solutionPath: '**/*.sln'
     noNuGetCache: true
