@@ -6,8 +6,7 @@ steps:
   inputs:
     artifactoryConnection: 'sarangeplus'
     cliInstallationRepo: 'jfrog-cli-remote'
-    installExtractors: true
-    extractorsInstallationRepo: 'extractors'    
+
 - task: JFrogCollectIssues@1
   inputs:
     artifactoryConnection: 'sarangeplus'
