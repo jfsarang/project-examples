@@ -6,11 +6,10 @@ steps:
   inputs:
     artifactoryConnection: 'sarangeplus'
     cliInstallationRepo: 'jfrog-cli-remote'
-
+  
 - task: JFrogCollectIssues@1
   inputs:
     artifactoryConnection: 'sarangeplus'
     configSource: 'taskConfiguration'
-    buildName: 'bmp-nuget-demo'
+    buildName: 'NugetTest'
     buildNumber: '1'
-    workingDirectory: './Strike.Core.Infrastructure'
