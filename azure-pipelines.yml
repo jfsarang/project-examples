@@ -6,10 +6,24 @@ steps:
   inputs:
     artifactoryConnection: 'sarangeplus'
     cliInstallationRepo: 'jfrog-cli-remote'
-  
 - task: JFrogCollectIssues@1
   inputs:
     artifactoryConnection: 'sarangeplus'
     configSource: 'taskConfiguration'
-    buildName: 'NugetTest'
-    buildNumber: '1'
+    taskConfig: |
+      version: 1
+      issues:
+          trackerName: JIRA
+          regexp: (.+-[0-9]+)\s-\s(.+) 
+          keyGroupIndex: 1
+          summaryGroupIndex: 2
+          trackerUrl: http://my-jira.com/issues
+          aggregate: true
+          aggregationStatus: RELEASED
+    buildName: 'my-build'
+    buildNumber: '20'
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'sarangeplus'
+    buildName: 'my-build'
+    buildNumber: '20'
